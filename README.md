@@ -27,7 +27,7 @@ We must aggree on a **symbol signature** to load our classes, I propose the foll
   ```
 - For IAudioModule:
   ```cpp
-      extern "C" std::shared_ptr<IAudioModule> createAudio();=
+      extern "C" std::shared_ptr<IAudioModule> createAudio();
   ```
 
 - [ ] Game Wrapper
@@ -38,8 +38,7 @@ We must aggree on a **symbol signature** to load our classes, I propose the foll
 
 - For IGameModule:
   ```cpp
-      extern "C" IGameModule *createGame();
-      extern "C" void deleteGame(IGameModule *module);
+      extern "C" std::shared_ptr<IGameModule> createGame();
   ```
 
 # Updates
