@@ -13,7 +13,7 @@
 
 namespace arcade
 {
-    class SfmlText : public arcade::ITextModule
+    class SfmlText : public arcade::interface::ITextModule
     {
         public:
             std::shared_ptr<sf::Text> text;
@@ -29,8 +29,7 @@ namespace arcade
         
         ~SfmlText() = default;
     
-        template <typename T>
-        T getText() const 
+        void *getText() const 
         {
             return this->text.get();
         }

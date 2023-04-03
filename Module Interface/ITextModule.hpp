@@ -18,7 +18,7 @@ namespace arcade {
             /**
              * @brief Get the Text object
              * 
-             * @return T returns the text object
+             * @return void *returns the text object
              */
             virtual void *getText() const = 0;
 

@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2023
-** Arcade-Interface
+** arcade::interface-Interface
 ** File description:
 ** game2
 */
@@ -10,12 +10,12 @@
 #include "../Module Interface/UserModule.hpp"
 #include <iostream>
 
-class Game2 : public arcade::IGameModule
+class Game2 : public arcade::interface::IGameModule
 {
     public:
         Game2() = default;
 
-        size_t update(std::shared_ptr<arcade::IDisplayModule> display,
+        size_t update(std::shared_ptr<arcade::interface::IDisplayModule> display,
         arcade::User_data &user,
         std::vector<std::string> &_gameLibs,
         std::vector<std::string> &_graphLibs, 
@@ -25,25 +25,25 @@ class Game2 : public arcade::IGameModule
         size_t &_pathToMenuLib) 
         {
             display->clearWindow();
-            if (display->isKeyPressed(arcade::KeyCode::Q))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Q))
                 player->move(-1, 0);
-            if (display->isKeyPressed(arcade::KeyCode::S))
+            if (display->isKeyPressed(arcade::interface::KeyCode::S))
                 player->move(1, 0);
-            if (display->isKeyPressed(arcade::KeyCode::Z))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Z))
                 player->move(0, -1);
-            if (display->isKeyPressed(arcade::KeyCode::D))
+            if (display->isKeyPressed(arcade::interface::KeyCode::D))
                 player->move(0, 1);
             
             // INPUT FOR MANAGEMENT OF LIBS
-            if (display->isKeyPressed(arcade::KeyCode::Escape))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Escape))
                 return 69;
-            if (display->isKeyPressed(arcade::KeyCode::Up))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Up))
                 return 1;
-            if (display->isKeyPressed(arcade::KeyCode::Down))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Down))
                 return -1;
-            if (display->isKeyPressed(arcade::KeyCode::Left))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Left))
                 return 2;
-            if (display->isKeyPressed(arcade::KeyCode::Right))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Right))
                 return -2;
             // INPUT FOR MANAGEMENT OF LIBS
 
@@ -62,7 +62,7 @@ class Game2 : public arcade::IGameModule
         }
 
     private:
-        bool Initialisation(std::shared_ptr<arcade::IDisplayModule> display)
+        bool Initialisation(std::shared_ptr<arcade::interface::IDisplayModule> display)
         {
             display->fetchInputs();
             player = display.get()->createSprite();
@@ -78,6 +78,6 @@ class Game2 : public arcade::IGameModule
         }
 
     private:
-        std::shared_ptr<arcade::ISpriteModule> player;
-        std::shared_ptr<arcade::ITextModule> title;
+        std::shared_ptr<arcade::interface::ISpriteModule> player;
+        std::shared_ptr<arcade::interface::ITextModule> title;
 };

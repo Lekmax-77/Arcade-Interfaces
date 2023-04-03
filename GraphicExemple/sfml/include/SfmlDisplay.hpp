@@ -22,12 +22,12 @@
 
 namespace arcade
 {
-    class SfmlDisplay : public arcade::IDisplayModule
+    class SfmlDisplay : public arcade::interface::IDisplayModule
     {
         public:
             //PROPERTIES:
             std::shared_ptr<sf::RenderWindow> window;
-            std::map<arcade::KeyCode, bool> pressedKeys;
+            std::map<arcade::interface::KeyCode, bool> pressedKeys;
         
             void closeWindow() override
             {
@@ -97,17 +97,17 @@ namespace arcade
                 window->create(sf::VideoMode(1920, 1080), "Arcade Sfml", sf::Style::Fullscreen);
             }
 
-            std::shared_ptr<arcade::ISpriteModule> createSprite() override
+            std::shared_ptr<arcade::interface::ISpriteModule> createSprite() override
             {
                 return std::make_shared<arcade::SfmlSprite>();
             }
 
-            std::shared_ptr<arcade::ITextModule> createText() override
+            std::shared_ptr<arcade::interface::ITextModule> createText() override
             {
                 return std::make_shared<arcade::SfmlText>();
             }
 
-            std::shared_ptr<arcade::IAudioModule> createAudio() override
+            std::shared_ptr<arcade::interface::IAudioModule> createAudio() override
             {
                 return std::make_shared<arcade::SfmlAudio>();
             }
@@ -123,18 +123,18 @@ namespace arcade
                         this->window->close();
 
                 // Mouse Input        
-                pressedKeys[arcade::KeyCode::MouseButton1] = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-                pressedKeys[arcade::KeyCode::MouseButton2] = sf::Mouse::isButtonPressed(sf::Mouse::Middle);
-                pressedKeys[arcade::KeyCode::MouseButton3] = sf::Mouse::isButtonPressed(sf::Mouse::Right);
+                pressedKeys[arcade::interface::KeyCode::MouseButton1] = sf::Mouse::isButtonPressed(sf::Mouse::Left);
+                pressedKeys[arcade::interface::KeyCode::MouseButton2] = sf::Mouse::isButtonPressed(sf::Mouse::Middle);
+                pressedKeys[arcade::interface::KeyCode::MouseButton3] = sf::Mouse::isButtonPressed(sf::Mouse::Right);
                 
                 // keyboard inputs
-                for (int i = 0; i < arcade::KeyCount; ++i)
-                    pressedKeys[(arcade::KeyCode)i] = sf::Keyboard::isKeyPressed((sf::Keyboard::Key)i);
+                for (int i = 0; i < arcade::interface::KeyCount; ++i)
+                    pressedKeys[(arcade::interface::KeyCode)i] = sf::Keyboard::isKeyPressed((sf::Keyboard::Key)i);
                 
                 //(bind with smfl sf::Key for keyboard and sf::Button for mouse)
                 //TODO: need to see if binding is the same for sdl and others
             }
-            bool isKeyPressed(arcade::KeyCode key) override
+            bool isKeyPressed(arcade::interface::KeyCode key) override
             {
                 return pressedKeys[key];
             }
@@ -154,13 +154,13 @@ namespace arcade
             }
             //////////////////////////////////////////
             // DRAW LOGIC:
-            void draw(std::shared_ptr<arcade::ISpriteModule> spriteModule) override
+            void draw(std::shared_ptr<arcade::interface::ISpriteModule> spriteModule) override
             {
                 sf::Sprite *temp((sf::Sprite *)spriteModule->getSprite());
                 window->draw(*temp);
             }
 
-            void draw(std::shared_ptr<arcade::ITextModule> textModule) override
+            void draw(std::shared_ptr<arcade::interface::ITextModule> textModule) override
             {
                 sf::Sprite *temp((sf::Sprite *)textModule->getText());
                 window->draw(*temp);

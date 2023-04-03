@@ -25,7 +25,7 @@ namespace arcade {
                  * USED ONLY IN WRAPPER
                  * MUST : return the object sprite or texture to draw
                  * 
-                 * @return T is the sprite
+                 * @return void *is the sprite
                  */
                 virtual void *getSprite() const = 0;
 

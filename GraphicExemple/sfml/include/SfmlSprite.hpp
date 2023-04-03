@@ -15,7 +15,7 @@
 
 namespace arcade
 {
-    class SfmlSprite : public arcade::ISpriteModule
+    class SfmlSprite : public arcade::interface::ISpriteModule
     {
         public:
             //PROPERTIES:
@@ -36,8 +36,7 @@ namespace arcade
             
             ~SfmlSprite() = default;
             
-            template <typename T>
-            T getSprite() const override
+            void *getSprite() const override
             {
                 return sprite.get();
             }

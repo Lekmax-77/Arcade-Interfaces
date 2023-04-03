@@ -14,7 +14,7 @@
 
 namespace arcade
 {
-    class SfmlAudio : public arcade::IAudioModule
+    class SfmlAudio : public arcade::interface::IAudioModule
     {
         public:
             std::shared_ptr<sf::Music> sound;
