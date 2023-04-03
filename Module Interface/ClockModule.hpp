@@ -65,7 +65,7 @@ namespace arcade
                 /**
                  * @brief Get the elapsed time
                  * 
-                 * @return double 
+                 * @return double return the elapsed time in seconds
                  */
                 double elapsed_time() const {
                     if (paused_) {
