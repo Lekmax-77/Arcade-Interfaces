@@ -10,7 +10,7 @@
 
 extern "C"
 {
-    std::shared_ptr<arcade::IGameModule> createGame()
+    std::shared_ptr<arcade::interface::IGameModule> createGame()
     {
         return std::make_shared<Game2>();
     }

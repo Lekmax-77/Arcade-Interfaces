@@ -14,7 +14,7 @@
 
 extern "C"
 {
-    std::shared_ptr<arcade::IDisplayModule> createDisplay()
+    std::shared_ptr<arcade::interface::IDisplayModule> createDisplay()
     {
         return std::make_shared<arcade::SfmlDisplay>();
     }

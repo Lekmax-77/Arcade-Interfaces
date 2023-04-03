@@ -156,14 +156,12 @@ namespace arcade
             // DRAW LOGIC:
             void draw(std::shared_ptr<arcade::interface::ISpriteModule> spriteModule) override
             {
-                sf::Sprite *temp((sf::Sprite *)spriteModule->getSprite());
-                window->draw(*temp);
+                window->draw(*(sf::Sprite *)spriteModule->getSprite());
             }
 
             void draw(std::shared_ptr<arcade::interface::ITextModule> textModule) override
             {
-                sf::Sprite *temp((sf::Sprite *)textModule->getText());
-                window->draw(*temp);
+                window->draw(*(sf::Text *)textModule->getText());
             }
     };  
 }

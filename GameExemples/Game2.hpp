@@ -66,7 +66,7 @@ class Game2 : public arcade::interface::IGameModule
         {
             display->fetchInputs();
             player = display.get()->createSprite();
-            player->setSprite("assets/test.png");
+            player->setSprite("assets/test");
             player->setPosition(100, 100);
 
             title = display->createText();
