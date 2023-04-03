@@ -28,8 +28,9 @@ namespace arcade
         }
         
         ~SfmlText() = default;
-
-        void *getText() const 
+    
+        template <typename T>
+        T getText() const 
         {
             return this->text.get();
         }

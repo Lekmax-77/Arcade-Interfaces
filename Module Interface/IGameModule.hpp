@@ -16,6 +16,7 @@
 
 
 namespace arcade {
+    namespace interface {
 
     class GameException : public std::exception {
         public:
@@ -70,8 +71,6 @@ namespace arcade {
              * @param _pathtoGameLib is the index to the game lib
              * @param _pathToMenuLib is the index to the menu lib
              * 
-             * @return size_t is the index of the game lib
-             * 
              * @return 0 if the game is not over
              * @return 1 to go to the next game
              * @return -1 to go to the previous game
@@ -81,7 +80,7 @@ namespace arcade {
              * @return -3 to go to the previous menu lib
              * @return 69 to quit the game and go to the menu
              */
-            virtual size_t update(std::shared_ptr<arcade::IDisplayModule> display, arcade::User_data &user,
+            virtual size_t update(std::shared_ptr<arcade::interface::IDisplayModule> display, arcade::User_data &user,
             std::vector<std::string> &_gameLibs, 
             std::vector<std::string> &_graphLibs, 
             std::vector<std::string> &_menuLibs, 
@@ -95,7 +94,17 @@ namespace arcade {
              * @return const std::string& is the name of the game
              */
             virtual std::string getName() const = 0;
+
+            /**
+             * @brief initialisation of the game
+             * 
+             * @param display is the display module
+             * @return true if the initialisation is a success
+             * @return false if the initialisation is a failure
+             */
+            virtual bool Initialisation(std::shared_ptr<arcade::interface::IDisplayModule> display) = 0;
     };
+    }
 }
 
 #endif /* !IGAMEMODULE_HPP_ */

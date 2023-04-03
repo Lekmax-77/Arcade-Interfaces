@@ -10,7 +10,7 @@
     #include <string>
 
 namespace arcade {
-
+    namespace interface {
     class ITextModule {
         public:
             virtual ~ITextModule() = default;
@@ -18,7 +18,7 @@ namespace arcade {
             /**
              * @brief Get the Text object
              * 
-             * @return void* returns the text object
+             * @return T returns the text object
              */
             virtual void *getText() const = 0;
 
@@ -70,6 +70,7 @@ namespace arcade {
             virtual void setColor(unsigned char r, unsigned char g, unsigned char b) = 0;
 
     };
+    } // namespace interface
 } // namespace arcade
 
 #endif /* !ITEXTMODULE_HPP_ */

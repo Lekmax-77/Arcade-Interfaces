@@ -24,12 +24,6 @@ class Game2 : public arcade::IGameModule
         size_t &_pathtoGameLib,
         size_t &_pathToMenuLib) 
         {
-            std::cout << _graphLibs[_pathToGraphLib] << _gameLibs[_pathtoGameLib] << _menuLibs[_pathToMenuLib] << user.getName() <<std::endl;
-            if (firstTime && _graphLibs[_pathToGraphLib] != _my_graphLib) {
-                _my_graphLib = _graphLibs[_pathToGraphLib];
-                init_game(display);
-                firstTime = false;
-            }
             display->clearWindow();
             if (display->isKeyPressed(arcade::KeyCode::Q))
                 player->move(-1, 0);
@@ -68,7 +62,7 @@ class Game2 : public arcade::IGameModule
         }
 
     private:
-        int init_game(std::shared_ptr<arcade::IDisplayModule> display)
+        bool Initialisation(std::shared_ptr<arcade::IDisplayModule> display)
         {
             display->fetchInputs();
             player = display.get()->createSprite();
@@ -80,13 +74,10 @@ class Game2 : public arcade::IGameModule
             title->setPosition(100, 10);
             title->setColor(255, 255, 255);
             title->setFontSize(50);
-            return 0;
+            return true;
         }
+
+    private:
         std::shared_ptr<arcade::ISpriteModule> player;
         std::shared_ptr<arcade::ITextModule> title;
-        
-    private:
-        bool firstTime = true;
-        std::string _my_graphLib = ""; 
-
 };

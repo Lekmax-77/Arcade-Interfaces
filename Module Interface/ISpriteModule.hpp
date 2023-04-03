@@ -10,7 +10,7 @@
     #include <string>
 
 namespace arcade {
-
+    namespace interface {
     class ISpriteModule {
             public:
                 /**
@@ -25,7 +25,7 @@ namespace arcade {
                  * USED ONLY IN WRAPPER
                  * MUST : return the object sprite or texture to draw
                  * 
-                 * @return void* is the sprite
+                 * @return T is the sprite
                  */
                 virtual void *getSprite() const = 0;
 
@@ -82,6 +82,7 @@ namespace arcade {
                  */
                 virtual void setColor(unsigned char r, unsigned char g, unsigned char b) = 0;
     };
+    }
 }
 
 

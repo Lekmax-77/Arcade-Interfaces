@@ -35,8 +35,9 @@ namespace arcade
             }
             
             ~SfmlSprite() = default;
-
-            void *getSprite() const override
+            
+            template <typename T>
+            T getSprite() const override
             {
                 return sprite.get();
             }

@@ -13,7 +13,10 @@
     #include "IAudioModule.hpp"
     #include <memory>
 
-namespace arcade {
+namespace arcade
+{
+    namespace interface
+    {
 
     enum KeyCode
     {
@@ -247,38 +250,39 @@ namespace arcade {
              * 
              * @param sprite the sprite to draw
              */
-            virtual void draw(std::shared_ptr<arcade::ISpriteModule> sprite) = 0;
+            virtual void draw(std::shared_ptr<arcade::interface::ISpriteModule> sprite) = 0;
 
             /**
              * @brief draw a text module
              * 
              * @param text the text to draw
              */
-            virtual void draw(std::shared_ptr<arcade::ITextModule> text) = 0;
+            virtual void draw(std::shared_ptr<arcade::interface::ITextModule> text) = 0;
 
             /**
              * @brief Create a Sprite object
              * 
-             * @return arcade::ISpriteModule 
+             * @return arcade::interface::ISpriteModule 
              */
-            virtual std::shared_ptr<arcade::ISpriteModule> createSprite() = 0;
+            virtual std::shared_ptr<arcade::interface::ISpriteModule> createSprite() = 0;
 
             /**
              * @brief Create a Text object
              * 
-             * @return arcade::ITextModule 
+             * @return arcade::interface::ITextModule 
              */
-            virtual std::shared_ptr<arcade::ITextModule> createText() = 0;
+            virtual std::shared_ptr<arcade::interface::ITextModule> createText() = 0;
             
             /**
              * @brief Create a Audio object
              * 
-             * @return arcade::IAudioModule 
+             * @return arcade::interface::IAudioModule 
              */
-            virtual std::shared_ptr<arcade::IAudioModule> createAudio() = 0;
+            virtual std::shared_ptr<arcade::interface::IAudioModule> createAudio() = 0;
     
             /////////////////////////////////////////////////////////
     };
+    }
 }
 
 #endif /* !IDIPSPLAYMODULE_HPP_ */

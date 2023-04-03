@@ -11,7 +11,6 @@
 
 namespace arcade
 {
-    // TODO create file to store score and nickname of the player
     class User_data {
         public:
             User_data()
