@@ -8,6 +8,7 @@
 #ifndef ISPRITEMODULE_HPP_
     #define ISPRITEMODULE_HPP_
     #include <string>
+    #include "Color.hpp"
 
 namespace arcade {
     namespace interface {
@@ -41,7 +42,7 @@ namespace arcade {
 
                  * @param filePath is the path to the sprite
                  */
-                virtual void setSprite(std::string filePath) = 0;
+                virtual void setSprite(const std::string &filePath) = 0;
 
 
                 /**
@@ -86,7 +87,7 @@ namespace arcade {
                  * @param g green
                  * @param b blue
                  */
-                virtual void setColor(unsigned char r, unsigned char g, unsigned char b) = 0;
+                virtual void setColor(arcade::Color color) = 0;
     };
     }
 }

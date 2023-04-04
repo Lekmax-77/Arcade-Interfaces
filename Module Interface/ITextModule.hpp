@@ -8,9 +8,12 @@
 #ifndef ITEXTMODULE_HPP_
     #define ITEXTMODULE_HPP_
     #include <string>
+    #include "Color.hpp"
 
-namespace arcade {
-    namespace interface {
+namespace arcade
+{
+    namespace interface
+    {
     class ITextModule {
         public:
             virtual ~ITextModule() = default;
@@ -74,7 +77,7 @@ namespace arcade {
              * @param g green
              * @param b blue
              */
-            virtual void setColor(unsigned char r, unsigned char g, unsigned char b) = 0;
+            virtual void setColor(arcade::Color color) = 0;
 
     };
     } // namespace interface

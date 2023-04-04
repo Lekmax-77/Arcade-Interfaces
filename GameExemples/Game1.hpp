@@ -15,7 +15,13 @@
 class Game1 : public arcade::interface::IGameModule
 {
     public:
-        Game1() = default;
+        Game1()
+        {
+            this->_pos_player.first = 100;
+            this->_pos_player.second = 100;
+            this->_pos_title.first = 100;
+            this->_pos_title.second = 10;
+        }
 
         size_t update(
             std::shared_ptr<arcade::interface::IDisplayModule> display,
@@ -29,13 +35,13 @@ class Game1 : public arcade::interface::IGameModule
         {
             display->clearWindow();
             if (display->isKeyPressed(arcade::interface::KeyCode::Q))
-                player->move(-1, 0);
+                this->_pos_player.first -= 1;
             if (display->isKeyPressed(arcade::interface::KeyCode::S))
-                player->move(1, 0);
+                this->_pos_player.second += 1;
             if (display->isKeyPressed(arcade::interface::KeyCode::Z))
-                player->move(0, -1);
+                this->_pos_player.second -= 1;
             if (display->isKeyPressed(arcade::interface::KeyCode::D))
-                player->move(0, 1);
+                this->_pos_player.first += 1;
             
             // INPUT FOR MANAGEMENT OF LIBS
             if (display->isKeyPressed(arcade::interface::KeyCode::Escape))
@@ -49,6 +55,11 @@ class Game1 : public arcade::interface::IGameModule
             if (display->isKeyPressed(arcade::interface::KeyCode::Right))
                 return -2;
             // 
+
+            title->setColor(255, 255, 255);
+            title->setFontSize(50);
+            player->setPosition(this->_pos_player.first, this->_pos_player.second);
+            title->setPosition(this->_pos_title.first, this->_pos_title.second);
             display->draw(player);
             display->draw(title);
             display->fetchInputs();            
@@ -67,20 +78,19 @@ class Game1 : public arcade::interface::IGameModule
             display.get()->fetchInputs();
             player = display.get()->createSprite();
             player->setSprite("assets/test");
-            player->setPosition(100, 100);
 
             title = display.get()->createText();
             title->setText("Game 1");
-            title->setPosition(100, 10);
-            title->setColor(255, 255, 255);
-            title->setFontSize(50);
             return true;
         }
         
         
-       private: 
+    private: 
         std::shared_ptr<arcade::interface::ISpriteModule> player;
         std::shared_ptr<arcade::interface::ITextModule> title;
-        
+
+    private:
+        std::pair<float, float> _pos_player;
+        std::pair<float, float> _pos_title;
 
 };
