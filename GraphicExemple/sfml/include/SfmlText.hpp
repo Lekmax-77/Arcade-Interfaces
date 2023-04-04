@@ -47,9 +47,9 @@ namespace arcade
             (pos.second + y)});
         }
         
-        void setColor(unsigned char r, unsigned char g, unsigned char b)
+        void setColor(arcade::Color color)
         {
-            sf::Color colo(r, g, b);
+            sf::Color colo(color.r, color.g, color.b);
             text->setFillColor(colo);
             text->setOutlineColor(colo);
         }

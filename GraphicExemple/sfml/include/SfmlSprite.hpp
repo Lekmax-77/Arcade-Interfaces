@@ -10,7 +10,8 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <string>
-#include "../../../Module Interface/ISpriteModule.hpp"
+#include "ISpriteModule.hpp"
+#include "Color.hpp"
 #include <memory>
 
 namespace arcade
@@ -66,9 +67,9 @@ namespace arcade
                 sprite->setPosition((sf::Vector2f){(pos.first + x), (pos.second + y)});
             }
             
-            void setColor(unsigned char r, unsigned char g, unsigned char b) override
+            void setColor(arcade::Color color) override
             {
-                sprite->setColor((sf::Color){r, g, b});
+                sprite->setColor((sf::Color){color.r, color.g, color.b});
             }
     };  
 }
