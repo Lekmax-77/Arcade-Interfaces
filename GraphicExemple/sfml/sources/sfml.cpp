@@ -19,7 +19,7 @@ extern "C"
         return std::make_shared<arcade::SfmlDisplay>();
     }
 
-    std::string getName(void)
+    std::string getType(void)
     {
         return "graph";
     }

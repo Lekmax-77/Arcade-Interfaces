@@ -14,7 +14,7 @@ extern "C"
         return std::make_shared<Game1>();
     }
 
-    std::string getName(void)
+    std::string getType(void)
     {
         return ("game");
     }

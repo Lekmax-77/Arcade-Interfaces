@@ -269,7 +269,6 @@ namespace arcade
                  * @return return a sprite module 
                  */
                 virtual std::shared_ptr<arcade::interface::ISpriteModule> createSprite() = 0;
-
                 /**
                  * @brief Create a Text object
                  * 

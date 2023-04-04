@@ -38,6 +38,13 @@ namespace arcade {
             virtual void setPosition(float x, float y) = 0;
 
             /**
+             * @brief Get the Position object
+             * 
+             * @return std::pair<float, float> is the position of the text 
+             */
+            virtual std::pair<float, float> getPosition() const = 0;
+
+            /**
              * @brief Set the Font Size object
              * 
              * @param size is the size to set the font

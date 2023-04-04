@@ -16,18 +16,22 @@ We must aggree on a **symbol signature** to load our classes, I propose the foll
 - For IDisplayModule:
   ```cpp
       extern "C" std::shared_ptr<IDisplayModule> createDisplay();
+      extern "C" std::string getType(void)
   ```
 - For ISpriteModule:
   ```cpp
       extern "C" std::shared_ptr<ISpriteModule> createSprite();
+      extern "C" std::string getType(void)
   ```
 - For ITextModule:
   ```cpp
       extern "C" std::shared_ptr<ITextModule> createText();
+      extern "C" std::string getType(void)
   ```
 - For IAudioModule:
   ```cpp
       extern "C" std::shared_ptr<IAudioModule> createAudio();
+      extern "C" std::string getType(void)
   ```
 
 - [ ] Game Wrapper
@@ -39,6 +43,7 @@ We must aggree on a **symbol signature** to load our classes, I propose the foll
 - For IGameModule:
   ```cpp
       extern "C" std::shared_ptr<IGameModule> createGame();
+      extern "C" std::string getType(void)
   ```
 
 # Updates

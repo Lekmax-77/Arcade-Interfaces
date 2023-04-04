@@ -11,7 +11,8 @@
 
 namespace arcade
 {
-    class User_data {
+    class User_data
+    {
         public:
             User_data()
             {

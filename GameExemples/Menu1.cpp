@@ -15,7 +15,7 @@ extern "C"
         return std::make_shared<Menu1>();
     }
 
-    std::string getName(void)
+    std::string getType(void)
     {
         return ("menu");
     }
