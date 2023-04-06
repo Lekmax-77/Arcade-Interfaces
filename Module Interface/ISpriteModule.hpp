@@ -30,7 +30,7 @@ namespace arcade
                  * 
                  * @return void * is the sprite
                  */
-                virtual void *getSprite() const = 0;
+                virtual void *getSprite() = 0;
 
 
                 /**

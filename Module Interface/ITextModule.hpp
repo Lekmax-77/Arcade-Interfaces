@@ -23,7 +23,7 @@ namespace arcade
                  * 
                  * @return T returns the text object
                  */
-                virtual void *getText() const = 0;
+                virtual void *getText() = 0;
 
                 /**
                  * @brief Set the Text object
