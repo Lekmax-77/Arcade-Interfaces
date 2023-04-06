@@ -35,7 +35,7 @@ class Game2 : public arcade::interface::IGameModule
                 player->move(0, 1);
             
             // INPUT FOR MANAGEMENT OF LIBS
-            if (display->isKeyPressed(arcade::interface::KeyCode::Escape))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Tab))
                 return 69;
             if (display->isKeyPressed(arcade::interface::KeyCode::Up))
                 return 1;
@@ -71,8 +71,10 @@ class Game2 : public arcade::interface::IGameModule
 
             title = display->createText();
             title->setText("Game 2");
+            title->setFontSize(50);
             title->setPosition(100, 10);
-            title->setColor(255, 255, 255);
+            title->setFont("assets/SIXTY");
+            title->setColor(arcade::RED);
             title->setFontSize(50);
             return true;
         }

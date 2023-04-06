@@ -44,7 +44,7 @@ class Game1 : public arcade::interface::IGameModule
                 this->_pos_player.first += 1;
             
             // INPUT FOR MANAGEMENT OF LIBS
-            if (display->isKeyPressed(arcade::interface::KeyCode::Escape))
+            if (display->isKeyPressed(arcade::interface::KeyCode::Tab))
                 return 69;
             if (display->isKeyPressed(arcade::interface::KeyCode::Up))
                 return 1;
@@ -56,7 +56,7 @@ class Game1 : public arcade::interface::IGameModule
                 return -2;
             // 
 
-            title->setColor(255, 255, 255);
+            title->setColor(arcade::RED);
             title->setFontSize(50);
             player->setPosition(this->_pos_player.first, this->_pos_player.second);
             title->setPosition(this->_pos_title.first, this->_pos_title.second);
@@ -80,6 +80,8 @@ class Game1 : public arcade::interface::IGameModule
             player->setSprite("assets/test");
 
             title = display.get()->createText();
+            title->setFontSize(50);
+            title->setFont("assets/SIXTY");
             title->setText("Game 1");
             return true;
         }

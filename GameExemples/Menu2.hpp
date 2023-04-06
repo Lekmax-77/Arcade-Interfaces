@@ -10,10 +10,10 @@
 #include "../Module Interface/UserModule.hpp"
 #include <iostream>
 
-class Menu1 : public arcade::interface::IGameModule
+class Menu2 : public arcade::interface::IGameModule
 {
     public:
-        Menu1() = default;
+        Menu2() = default;
 
         size_t update(std::shared_ptr<arcade::interface::IDisplayModule> display, arcade::User_data &user, std::vector<std::string> &_gameLibs,  std::vector<std::string> &_graphLibs, 
         std::vector<std::string> &_menuLibs, size_t &_pathToGraphLib, size_t &_pathtoGameLib, size_t &_pathToMenuLib) 
@@ -43,7 +43,7 @@ class Menu1 : public arcade::interface::IGameModule
         
         std::string getName() const
         {
-            return "Menu 1";
+            return "Menu 2";
         }
 
     private:
@@ -51,7 +51,7 @@ class Menu1 : public arcade::interface::IGameModule
         {
             display->fetchInputs();
             title = display->createText();
-            title->setText("Menu 1");
+            title->setText("Menu 2");
             title->setPosition(100, 10);
             title->setColor(arcade::RED);
             title->setFont("assets/SIXTY");
