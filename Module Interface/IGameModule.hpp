@@ -80,7 +80,7 @@ namespace arcade {
              * @return -3 to go to the previous menu lib
              * @return 69 to quit the game and go to the menu
              */
-            virtual size_t update(std::shared_ptr<arcade::interface::IDisplayModule> display, arcade::User_data &user,
+            virtual int update(std::shared_ptr<arcade::interface::IDisplayModule> display, arcade::User_data &user,
             std::vector<std::string> &_gameLibs, 
             std::vector<std::string> &_graphLibs, 
             std::vector<std::string> &_menuLibs, 
